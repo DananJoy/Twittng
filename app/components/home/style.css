@@ -1,0 +1,18 @@
+a {
+  color: #212121;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h3 {
+  font-family: 'Mako', sans-serif;
+  margin-top: 0px;
+}
+
+.faved {
+  color: maroon;
+}
+
+.rted {
+  color: purple;
+}

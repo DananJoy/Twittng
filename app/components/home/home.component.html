@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xs-3">
+
+  </div>
+  <div class="col-xs-6">
+    <div class="row">
+      <div class="col-xs-12">
+        <textarea class="form-control" rows="4" type="text" [(ngModel)]="tweetText"></textarea>
+        <div class="text-right">
+          <button class="btn btn-sm btn-success" (click)='onNewTweet(myText)'>Tweet</button>
+        </div>
+        <br/><br/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="media-list" *ngFor="let tweet of tweets">
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="{{tweet.avatar}}" alt="image" width="85px" height="85px">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{tweet.uname}}</h4>
+              {{tweet.text}}
+              <p>
+                <a class="fav" (click)="onFav(tweet)" [ngClass]="{ faved: isUserInCollection(tweet.fav, userService.getCurrentUser()) }">
+                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp; {{tweet.fav.length}} Favourite &nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <a class="rt" (click)="onRt(tweet)" [ngClass]="{ rted: isUserInCollection(tweet.rt, userService.getCurrentUser()) }">
+                  <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> &nbsp;{{tweet.rt.length}} Retweet
+                </a>
+              </p>
+            </div>
+          </li>
+          <hr />
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-3">
+
+  </div>
+</div>
